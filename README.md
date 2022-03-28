@@ -1,4 +1,10 @@
 # metaCCA
+
+A modified version of metaCCA.
+- Bugs fixed relating to single-study analysis
+
+Original README:
+
 The MATLAB codes in this repository can be used to perform metaCCA <br />
 (and its variant metaCCA+) - summary statistics-based analysis <br />
 of a single or multiple genome-wide association studies (GWAS) <br />
