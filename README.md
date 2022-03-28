@@ -1,6 +1,6 @@
 # metaCCA
 
-A modified version of metaCCA.
+Private project using a modified version of metaCCA.
 - Bugs fixed relating to single-study analysis
 
 Original README:
