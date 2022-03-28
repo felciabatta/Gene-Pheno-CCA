@@ -1,9 +1,9 @@
-# metaCCA
+# Gene-Pheno-CCA
 
-Private project using a modified version of metaCCA.
+Private project files, including a modified version of metaCCA.
 - Bugs fixed relating to single-study analysis
 
-Original README:
+Original metaCCA README:
 
 The MATLAB codes in this repository can be used to perform metaCCA <br />
 (and its variant metaCCA+) - summary statistics-based analysis <br />
