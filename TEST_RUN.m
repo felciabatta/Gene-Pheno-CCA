@@ -1,10 +1,12 @@
 % TEST RUN
 
+import metaCCA_MODIFIED.*
+
 % no. of people in study
-N_Test = 289307;
+N_Test = 244890;
 
 % data already correctly formatted
-S_XY_Test = importdata("S_XY_I25logistic.txt");
+S_XY_Test = importdata("Data/S_XY_ATLAS-3693.txt");
 
 % phenotype correlation matrix
 S_YY_Test = estimate_Syy(S_XY_Test);
