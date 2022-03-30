@@ -4,7 +4,7 @@ function p = chi2cdf_my(x,v)
 % In 'gamcdf_my', the option 'upper' is added to 'gammainc' function;
 % it specifies the tail of the gamma function 
 % ('lower' is the default one).
-
+import metaCCA_MODIFIED.*
 
 %CHI2CDF Chi-square cumulative distribution function.
 %   P = CHI2CDF(X,V) returns the chi-square cumulative distribution

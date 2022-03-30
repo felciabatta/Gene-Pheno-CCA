@@ -7,7 +7,7 @@ function [C_XX, C_YY, C_XY, sum_N] = pool_cov_cell( S_XX, S_YY, S_XY, N )
 % Anna Cichonska
 % anna.cichonska@helsinki.fi
 
-
+import metaCCA_MODIFIED.*
 
 nr_s  = length(N);       % number of studies
 

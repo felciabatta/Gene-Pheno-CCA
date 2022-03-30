@@ -7,7 +7,7 @@ function result = metaCCAplus(varargin)
 % Anna Cichonska
 % anna.cichonska@helsinki.fi
 
-
+import metaCCA_MODIFIED.*
 
 nr_in  = nargin;            % number of inputs
 M      = varargin{1};       % number of studies to be analysed 

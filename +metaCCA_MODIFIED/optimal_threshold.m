@@ -6,7 +6,7 @@ function opt_threshold = optimal_threshold(d_full,R,n,i)
 % Anna Cichonska
 % anna.cichonska@helsinki.fi
 
-
+import metaCCA_MODIFIED.*
 
 
 % Monitoring the behaviour of the leading canonical correlation

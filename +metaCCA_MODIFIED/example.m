@@ -8,7 +8,7 @@
 
 
 clear all; close all; clc
-
+import metaCCA_MODIFIED.*
 
 %% TEST DATA
 

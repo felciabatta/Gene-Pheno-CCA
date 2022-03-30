@@ -7,7 +7,7 @@ function [C_XX_shr, C_XY_shr, C_YY_shr] = shrinkPSD(R, n)
 % Anna Cichonska
 % anna.cichonska@helsinki.fi
 
-
+import metaCCA_MODIFIED.*
 
 
 % Eigenvalues of the full covariance matrix

@@ -7,7 +7,7 @@ function S_YY = estimate_Syy(S_XY)
 % Anna Cichonska
 % anna.cichonska@helsinki.fi
 
-
+import metaCCA_MODIFIED.*
 
 
 % Validating if the file format is correct

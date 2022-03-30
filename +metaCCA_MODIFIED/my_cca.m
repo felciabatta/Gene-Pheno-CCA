@@ -7,7 +7,7 @@ function [r, a, b, wilks, chi, df, p_val] = my_cca(C_XX, C_YY, C_XY, N)
 % Anna Cichonska
 % anna.cichonska@helsinki.fi
 
-
+import metaCCA_MODIFIED.*
 
 K = C_XX^(-0.5) * C_XY * C_YY^(-0.5);
 

@@ -3,7 +3,7 @@ function [p,plo,pup] = gamcdf_my(x,a,b,pcov,alpha)
 % MATLAB's function; option 'upper' is added to 'gammainc' function 
 % - it specifies the tail of the gamma function 
 % ('lower' is the default one).
-
+import metaCCA_MODIFIED.*
 
 %GAMCDF Gamma cumulative distribution function.
 %   P = GAMCDF(X,A,B) returns the gamma cumulative distribution function
