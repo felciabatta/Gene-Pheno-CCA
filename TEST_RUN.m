@@ -9,7 +9,7 @@ S_XY_Full = importdata("Data/S_XY_ATLAS-3693.txt");
 N_Test = 244890;
 
 %% cut data down to desired size
-SNProws = [1:100]; % choose which SNPs you want (by row index)
+SNProws = [1:100]; % choose which SNPs you want (using row no.)
 S_XY_Test = struct();
 S_XY_Test.data = S_XY_Full.data(SNProws,:);
 S_XY_Test.textdata = S_XY_Full.textdata([1,SNProws+1],:);
@@ -25,9 +25,11 @@ pvals=10.^(-cell2mat(metaCCA_TEST(2:end,3)));
 
 % insert pvals into results matrix, and round
 % also convert to 'single' data type as takes less memory
+metaCCA_TEST{1,4}='GwazAtlas_pvals';
 metaCCA_TEST(2:end,4)=num2cell(pvals);
-metaCCA_TEST(2:end,4)=num2cell(round(single(pvals),4));
-metaCCA_TEST(2:end,3)=num2cell(round(single(cell2mat(metaCCA_TEST(2:end,3))),4));
+metaCCA_TEST(2:end,4)=num2cell(pvals);
+metaCCA_TEST(2:end,4)=num2cell(round(single(pvals),5));
+metaCCA_TEST(2:end,3)=num2cell(round(single(cell2mat(metaCCA_TEST(2:end,3))),5));
 
 %% export as .txt file
 writecell(metaCCA_TEST(:,[1 3 4]),'metaCCA_TEST.txt','Delimiter','\t')
