@@ -55,7 +55,7 @@ S_XY_full_study2 = importdata('S_XY_full_study2.txt');
 %
 %  FORMAT: the same as above ('S_XY_full').
 
-S_XY_study1 = importdata('S_XY_study1.txt');
+S_XY_study1 = importdata('+metaCCA_MODIFIED/S_XY_study1.txt');
 S_XY_study2 = importdata('S_XY_study2.txt');
 
 
@@ -70,7 +70,7 @@ S_XY_study2 = importdata('S_XY_study2.txt');
 %          No header line.
 %          Genetic variants in this matrix need to correspond to the ones given above in S_XY.
 
-S_XX_study1 = importdata('S_XX_study1.txt'); 
+S_XX_study1 = importdata('+metaCCA_MODIFIED/S_XX_study1.txt'); 
 S_XX_study2 = importdata('S_XX_study2.txt'); 
 
 

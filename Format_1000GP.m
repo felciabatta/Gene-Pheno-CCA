@@ -4,15 +4,18 @@
 %        reformatting and covariance matrix are automatic
 
 % input file
-[file,path] = uigetfile('Data_SNPs/*.txt');
+[file,path] = uigetfile('Data_SNPs/.txt');
+opts = detectImportOptions([path,file],'Delimiter','\t');
+opts = setvartype(opts,'ID','double');
+opts.Whitespace='\b rs';
 
 % reformat data
-SNPdata = readtable([path,file],"Delimiter",'\t');
-Var1 = find(string(SNPdata.Properties.VariableNames)=="ID");
+SNPdata = readtable([path,file],opts);
+% Var1 = find(string(SNPdata.Properties.VariableNames)=="ID");
 Var2 = find(string(SNPdata.Properties.VariableNames)=="FORMAT");
-SNPdata.Properties.RowNames = SNPdata.ID;
+SNPids = SNPdata.ID;
 SNPdata = SNPdata(:,Var2+1:end);
-SNPdata = string(table2array(SNPdata))';
+SNPdata = string(table2array(SNPdata));
 
 cat = ["0|0","0|1";"1|0","1|1"];
 num = [ "0" ,"0.5";"0.5", "1" ];
@@ -24,7 +27,7 @@ end
 SNPdata = double(SNPdata);
 
 % calculate covariance matrix
-S_XX = round(corr(SNPdata),5);
+S_XX = [SNPids,round(corr(SNPdata'),5)];
 
 % save matrix
 ATLASiD = input("Enter the ID for the GWAZ ATLAS dataset: ","s");

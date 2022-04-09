@@ -60,6 +60,7 @@ for i = 1:M    % M - #studies
         trait_ids_se{i}(ii) = getfield( strsplit(trait_ids_se_temp{ii},'_'), {1});
     end
     
+    % BUG FIX (for single study)
     if M == 1
         trait_id_syy{2} = trait_id_syy{1};
         trait_ids_betas{2} = trait_ids_betas{1};
@@ -110,7 +111,8 @@ if option == 0
         S_XY{i}    =  S_XY_temp.data(:, 1:2:end);   % univariate regression coefficients 
         se{i}      =  S_XY_temp.data(:, 2:2:end);
     end
-
+    
+    % BUG FIX (for single study)
     if M == 1
         SNPid{2} = SNPid{1};
         allele0{2} = allele0{1};
@@ -215,6 +217,10 @@ elseif option == 1
         allele0{i}  = S_XY_temp.textdata(h_id+1 ,2);   % h_id+1 --> first entry is a header 'allele_0'
     end
     
+    % BUG FIX (for single study)
+    if M == 1
+        allele0{2} = allele0{1};
+    end    
     
     % Validating if allele_0 match between different studies
     if isequal(allele0{:}) ~= 1
@@ -298,7 +304,11 @@ elseif option == 2
         
     end
     
-
+    % BUG FIX (for single study)
+    if M == 1
+        SNPid{2} = SNPid{1};
+        SNPid_inSxx{2} = SNPid_inSxx{1};
+    end
     
     % Validating if SNP ids in S_XY match between different studies
     if isequal(SNPid{:}) ~= 1
@@ -338,6 +348,10 @@ elseif option == 2
         S_XX{i}     = S_XX_all{i}(h_id, h_id);  
     end
     
+    % BUG FIX (for single study)
+    if M == 1
+        allele0{2} = allele0{1};
+    end
     
     % Validating if allele_0 match between different studies
     if isequal(allele0{:}) ~= 1
