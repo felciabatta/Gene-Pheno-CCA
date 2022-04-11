@@ -1,0 +1,12 @@
+In this folder, you will also need to add the following files (available at https://www.cog-genomics.org/plink/2.0/resources#1kg_phase3):
+
+1. all_phase3.pgen.vst
+2. all_phase3.pvar.vst
+3. all_phase3.psam
+
+Decompress 1 & 2 using plink2, to also get:
+
+4. all_phase3.pgen
+5. all_phase3.pvar
+
+DO NOT commit any of these file to github, just keep them locally - they are too large for git.
