@@ -44,10 +44,6 @@ end
 
 
 Betas = S_XY.data(:, 1:2:end);
-S_YY = corr(Betas)
-
-% if length(trait_ids_betas)==1
-%     S_YY = 1;
-% end
+S_YY = corr(Betas);
 
 S_YY = [trait_ids_betas', num2cell(S_YY)];

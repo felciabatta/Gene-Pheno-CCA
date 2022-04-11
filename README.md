@@ -3,6 +3,23 @@
 Private project files, including a modified version of metaCCA.
 - Bugs fixed relating to single-study analysis
 
+Key Information:
+- The README.txt files in each folder explain what should be in each folder
+- Large files that cannot be contained in the REPO must be obtained seperately, which mainly includes 1000GP data, GWAS-ATLAS data, and S_XY files.
+- The only files which need to be created/edited manually are:
+	- S_XY_ATLAS-xxxx.txt (reformat GWAS-ATLAS data)
+	- POP-Lists/*.txt (download & reformat)
+	- SNP-Lists/*.txt (download & reformat; or created otherwise)
+- The files which can be created semi-automatically using MATLAB scripts inlcude:
+	- S_XX_ATLAS-xxxx.txt (estimateSxx.m)
+	- Data_SNPs/*.txt (get_snpdata.m)
+	- Results/*.txt (TEST_RUN.m, Multi_SNP_TEST.m, etc)
+- For univariate SNP analysis, only S_XY is needed
+- For multivariate SNP analysis
+	- POP-Lists, SNP-Lists are used to generate Data_SNPs
+	- Data_SNPs/*.txt are used to generate S_XX
+	- S_XY, S_XX, SNP-Lists are used to generate Results
+
 Original metaCCA README:
 
 The MATLAB codes in this repository can be used to perform metaCCA <br />

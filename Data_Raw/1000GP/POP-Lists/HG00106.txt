@@ -1,0 +1,2 @@
+#IID	Sex	Biosample ID	Population code	Population name	Superpopulation code	Superpopulation name	Population elastic ID	Data collections
+HG00106	female	SAME123948	GBR	British	EUR	European Ancestry	GBR	1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis

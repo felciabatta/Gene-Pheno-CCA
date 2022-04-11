@@ -1,17 +1,16 @@
 % TEST RUN
 
-import metaCCA_MODIFIED.*
-
 % DATA FORMAT (MUST contain the following folders & files as shown)
-
 % Folder :  Data_Matrix/
 %   Files:  S_XY_ATLAS-<STUDY_REF>.txt      % reformatted GWAS ATLAS XY data
 %           S_XX_ATLAS-<STUDY_REF>.txt      % XX matrix estimated via 1000GP
-%                                           % use Format_1000GP.m to create this
+%                                           % use estimate_Sxx.m to create this
 %                                           % only for multivariate SNP
 
 % Folder :  Data_Raw/GWAS-ATLAS/
 %   Files:  ATLAS-<STUDY_REF>_N.txt         % contains study size N
+
+import metaCCA_MODIFIED.*
 
 %% import data (must be correctly formatted)
 STUDY_REF = input("Enter study reference no.: ",'s');
@@ -47,7 +46,7 @@ S_XX_Test = importdata(['Data_Matrix/S_XX_ATLAS-',STUDY_REF,'.txt'],'\t');
 metaCCA_MultiSNP = metaCCA(1,S_XY_Test,0,S_YY_Test,N_Test,2,strSNPs(1:2),S_XX_Test);
 
 % multi-SNP metaCCA combos TEST
-pairs = nchoosek(strSNPs,2);
+pairs = nchoosek(strSNPs,17);
 metaCCA_pairSNP = {'SNP_id','r_1','-log10(p-val)'};
 for p = 1:length(pairs)
     m = metaCCA(1,S_XY_Test,0,S_YY_Test,N_Test,2,pairs(p,:),S_XX_Test);
@@ -73,7 +72,7 @@ imagesc(D)
 
 
 %% Get pvals from -log10(pvals)
-pvals=10.^(-cell2mat(metaCCA_TEST(2:end,3)));
+pvals = 10.^(-cell2mat(metaCCA_TEST(2:end,3)));
 
 % insert pvals into results matrix, and round
 % also convert to 'single' data type as takes less memory
