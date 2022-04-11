@@ -46,7 +46,7 @@ strSNPs = cellstr(string(mySNPs'));
 S_XX_Test = importdata(['Data_Matrix/S_XX_ATLAS-',STUDY_REF,'.txt'],'\t');
 metaCCA_MultiSNP = metaCCA(1,S_XY_Test,0,S_YY_Test,N_Test,2,strSNPs(1:2),S_XX_Test);
 
-%% multi-SNP metaCCA combos TEST
+% multi-SNP metaCCA combos TEST
 pairs = nchoosek(strSNPs,2);
 metaCCA_pairSNP = {'SNP_id','r_1','-log10(p-val)'};
 for p = 1:length(pairs)
@@ -63,10 +63,14 @@ for i = h
     resultsMat(end-i+1:end,18-i) = cell2mat(metaCCA_pairSNP(((triN(17)-triN(i)+1):(triN(17)-triN(i-1)))+1,3));
 end
 
+D = resultsMat;
+
 Dt = D';
 D(~isnan(D)') = Dt(~isnan(Dt));
 
 imagesc(D)
+
+
 
 %% Get pvals from -log10(pvals)
 pvals=10.^(-cell2mat(metaCCA_TEST(2:end,3)));
