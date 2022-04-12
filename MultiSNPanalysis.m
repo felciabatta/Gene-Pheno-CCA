@@ -64,4 +64,9 @@ end
 
 results = metaCCA_OUT(:,[1 3]);
 
+% reformat SNP_id column
+for c = 2:length(results)
+    results{c,1} = join(string(results{c,1}),',');
+end
+
 end
