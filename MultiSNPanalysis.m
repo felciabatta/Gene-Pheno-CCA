@@ -1,10 +1,10 @@
-function results = MultiSNPanalysis(ATLASid,SNPlist,GroupSize)
+function [results,SNPloc] = MultiSNPanalysis(ATLASid,SNPlist,GroupSize)
 % MULTISNPANALYSIS  runs multivariate metaCCA for a selection of SNPs, 
 %                   paired in groups of a specified size
 % 
 % INPUTS:   NAME        DESCRIPTION
 % 
-%           ATLASid     id number for GWAS-ATLAS dataset
+%           ATLASid     string id number for GWAS-ATLAS dataset
 %           SNPlist     filepath for an SNP-list
 %           GroupSize   desired SNP-grouping size
 
@@ -13,11 +13,11 @@ function results = MultiSNPanalysis(ATLASid,SNPlist,GroupSize)
 %           NAME                            DESCRIPTION
 % 
 % Folder :  Data_Matrix/
-%   Files:  S_XY_ATLAS-<STUDY_REF>.txt      Manually reformatted 
+%   Files:  S_XY_ATLAS-<STUDY_REF>.txt      Manually reformatted
 %                                           GWAS-ATLAS XY data
 % 
 % Folder :  Data_SNPs/
-%   Files:  phase3_<SNPlist_NAME>.txt       Created semi-automatically 
+%   Files:  phase3_<SNPlist_NAME>.txt       Created semi-automatically
 %                                           using get_snpdata.m
 
 import metaCCA_MODIFIED.*
@@ -38,11 +38,11 @@ allSNPs = readmatrix(['Data_Matrix/S_XY_ATLAS-',ATLASid,'.txt'],opts);
 
 % cut data to desired size
 mySNPs = readmatrix(SNPlist,'Whitespace','rs')';
-[in,loc] = ismember(mySNPs,allSNPs);
+[in,SNPloc] = ismember(mySNPs,allSNPs);
 
 S_XY = struct();
-S_XY.data = S_XY_Full.data(loc,:);
-S_XY.textdata = S_XY_Full.textdata([1;loc+1],:);
+S_XY.data = S_XY_Full.data(SNPloc,:);
+S_XY.textdata = S_XY_Full.textdata([1;SNPloc+1],:);
 
 % phenotype correlation matrix
 S_YY = estimate_Syy(S_XY);

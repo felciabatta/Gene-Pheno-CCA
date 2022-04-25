@@ -5,6 +5,8 @@
 
 % First you will need to create a S_XY file, by reformatting GWAS-ATLAS data
 %
+% --------- YOU CAN DOWNLOAD S_XY_ATLAS-3693.txt from the MS teams page ---------
+%
 % FILE      S_XY_ATLAS-xxxx.txt 
 % 
 % FORMAT 	---------------------------------------
