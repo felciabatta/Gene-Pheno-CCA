@@ -1,6 +1,6 @@
 .DS_Store
 Data_Matrix/
 Data_Raw/
-Data_SNPs
+Data_SNPs/
 TEST_Multi_SNP.m
 TEST_RUN.m
