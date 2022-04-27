@@ -25,9 +25,15 @@ for c = 1:numel(cat)
 end
 
 SNPdata = double(SNPdata);
+SNPcorr = round(corr(SNPdata'),5);
+for i = 1:length(SNPcorr)
+    SNPcorr(i,i) = 1;
+end
+% SNPcorr(isnan(SNPcorr)) = 0;
+SNPcorr = fillmissing(SNPcorr,'constant',0);
 
 % calculate covariance matrix
-S_XX = [SNPids,round(corr(SNPdata'),5)];
+S_XX = [SNPids,SNPcorr];
 
 %% save matrix
 % ATLASiD = input("Enter the ID for the GWAS ATLAS dataset: ","s");

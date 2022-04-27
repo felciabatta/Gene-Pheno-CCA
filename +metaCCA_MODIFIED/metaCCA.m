@@ -345,7 +345,7 @@ elseif option == 2
         se{i}       = S_XY_temp.data(h_id, 2:2:end); 
         allele0{i}  = S_XY_temp.textdata(h_id+1 ,2);       % h_id+1 --> first entry is a header 'allele_0'
    
-        S_XX{i}     = S_XX_all{i}(h_id, h_id);  
+        S_XX{i}     = S_XX_all{i}(h_id, h_id);
     end
     
     % BUG FIX (for single study)

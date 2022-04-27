@@ -38,6 +38,8 @@
 
 SNPlist = 'Data_Raw/1000GP/SNP-Lists/topSNPs_ATLAS-3693.txt';
 
+%% OPTIONAL - only if you NEED to extract new data with PLINK
+%
 % You also need to download the 1000GP phase3 population list, corresponding to
 % the GWAS-ATLAS study being analysed.
 % 
@@ -57,17 +59,18 @@ SNPlist = 'Data_Raw/1000GP/SNP-Lists/topSNPs_ATLAS-3693.txt';
 
 POPlist = 'Data_Raw/1000GP/POP-Lists/phase3_GBR.txt';
 
-%% Using these lists, you need to extract the 1000GP SNP-data like so:
+% Using these lists, you need to extract the 1000GP SNP-data like so:
 %  NOTE:    ONCE THE FILE IS CREATED, YOU DO NOT NEED TO RUN THIS AGAIN
 %           AS IT TAKES A LONG TIME TO RUN
 
 get_snpdata(SNPlist,POPlist);
 
 %% Finally, you can apply metaCCA using the function below
+% SNPloc just gives position of your selected SNPs, within the original data
 
-results = MultiSNPanalysis('3693',SNPlist,2);
+[results SNPloc] = MultiSNPanalysis('3693',SNPlist,2);
 
-% save the results using writecell
+%% save the results using writecell
 
 writecell(results,'Results/WALKTHROUGH_result.txt','Delimiter','\t');
 

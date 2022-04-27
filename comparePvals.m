@@ -3,7 +3,7 @@ function oldVSnew = comparePvals(ATLASid,SNPloc,results)
 %   Detailed explanation goes here
 
 % soloPvals = readmatrix(['Data_Raw/GWAS-ATLAS/ATLAS-',ATLASid,'_pvals.txt']);
-soloPvals = struct2array(load(['Data_Raw/GWAS-ATLAS/ATLAS-',ATLASid,'_pvals.mat']));
+soloPvals = struct2array(load(['Data_Raw/GWAS-ATLAS/Pvals_ATLAS-',ATLASid,'.mat']));
 mySoloPvals = soloPvals(SNPloc,:);
 
 pairedSNP_sumPvals = zeros(length(results)-1,1);
@@ -15,9 +15,5 @@ for p = 2:length(results)
 end
 
 oldVSnew = [pairedSNP_sumPvals,cell2mat(results(2:end,2))];
-
-plot(oldVSnew(:,1),oldVSnew(:,2),'.'); hold on;
-plot([0,120],[0,120])
-plot([0,120],[0,120]/2)
 
 end

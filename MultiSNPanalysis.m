@@ -57,10 +57,12 @@ SNPstr = cellstr(string(mySNPs'));
 pairs = nchoosek(SNPstr,GroupSize);
 metaCCA_OUT = {'SNP_id','r_1','-log10(p-val)'};
 
+fprintf('\nRunning metaCCA...\n');
 for p = 1:length(pairs)
     m = metaCCA(1,S_XY,0,S_YY,N_Test,2,pairs(p,:),S_XX);
     metaCCA_OUT(p+1,:) = m(2,:);
 end
+fprintf('\nAnalysis Complete.\n');
 
 results = metaCCA_OUT(:,[1 3]);
 
