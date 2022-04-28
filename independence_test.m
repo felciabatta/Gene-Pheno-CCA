@@ -8,4 +8,3 @@ randlogpairs = nchoosek(randlogpvals(n));
 randlogsum = sum(randlogpairs,2)
 
 end
-
